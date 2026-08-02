@@ -239,9 +239,9 @@ OFFICIAL_PACKAGES=(
   xdg-user-dirs xdg-utils
 
   # ── Apps ──
-  firefox firefox-i18n-pt-br telegram-desktop mpv gimp obs-studio
+  firefox firefox-i18n-pt-br telegram-desktop mpv audacious gimp obs-studio
   gsmartcontrol kdiskmark psensor htop hwinfo fastfetch
-  elisa kcalc gwenview uget gnome-disk-utility
+  kcalc gwenview uget gnome-disk-utility
 
   # ── Rede ──
   networkmanager network-manager-applet wpa_supplicant ethtool
@@ -621,13 +621,13 @@ xdg-mime default mpv.desktop video/x-msvideo
 xdg-mime default mpv.desktop video/quicktime
 xdg-mime default mpv.desktop video/x-flv
 
-# elisa — áudio
-xdg-mime default org.kde.elisa.desktop audio/mpeg
-xdg-mime default org.kde.elisa.desktop audio/x-flac
-xdg-mime default org.kde.elisa.desktop audio/ogg
-xdg-mime default org.kde.elisa.desktop audio/x-wav
-xdg-mime default org.kde.elisa.desktop audio/aac
-xdg-mime default org.kde.elisa.desktop audio/mp4
+# audacious — áudio
+xdg-mime default audacious.desktop audio/mpeg
+xdg-mime default audacious.desktop audio/x-flac
+xdg-mime default audacious.desktop audio/ogg
+xdg-mime default audacious.desktop audio/x-wav
+xdg-mime default audacious.desktop audio/aac
+xdg-mime default audacious.desktop audio/mp4
 
 # gwenview — imagens
 xdg-mime default org.kde.gwenview.desktop image/png
@@ -642,7 +642,7 @@ xdg-mime default org.kde.kate.desktop text/plain
 xdg-mime default org.kde.kate.desktop application/xml
 xdg-mime default org.kde.kate.desktop application/x-shellscript
 
-ok "Apps padrão: Dolphin, mpv, elisa, gwenview, kate"
+ok "Apps padrão: Dolphin, mpv, audacious, gwenview, kate"
 quote
 
 # ──────────────────────────────────────────────

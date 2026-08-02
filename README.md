@@ -16,7 +16,7 @@ Configurações pessoais do meu ambiente Arch Linux com **Labwc** (compositor Wa
 | **Arquivos** | Dolphin (KDE) |
 | **Editor** | Kate (KDE) |
 | **Imagens** | Gwenview (KDE) |
-| **Áudio** | PipeWire + WirePlumber + Elisa (KDE) + Pavucontrol |
+| **Áudio** | PipeWire + WirePlumber + Audacious + Pavucontrol |
 | **Bluetooth** | BlueZ |
 | **Impressão** | CUPS + system-config-printer |
 | **Ícones** | Papirus-Dark |
