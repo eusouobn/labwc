@@ -6,6 +6,6 @@
   <DefaultAppDirs/>
   <DefaultDirectoryDirs/>
   <Include>
-    <Category>All</Category>
+    <All/>
   </Include>
 </Menu>
