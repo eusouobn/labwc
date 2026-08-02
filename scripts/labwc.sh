@@ -371,6 +371,21 @@ ok "Dotfiles baixados do GitHub!"
 # Tornar scripts executáveis
 chmod +x "$HOME/.config/scripts/"*.sh 2>/dev/null || true
 ok "Scripts tornados executáveis"
+
+# Menus KDE — sem applications.menu o "Abrir com" do Dolphin não lista apps
+mkdir -p "$HOME/.config/menus"
+if [ -f /tmp/labwc-dotfiles/.config/menus/applications.menu ]; then
+  cp /tmp/labwc-dotfiles/.config/menus/applications.menu "$HOME/.config/menus/"
+fi
+mkdir -p "$HOME/.local/share/desktop-directories"
+tee "$HOME/.local/share/desktop-directories/kde-applications.directory" > /dev/null <<'EOF'
+[Desktop Entry]
+Type=Directory
+Icon=applications-other
+Name=Applications
+EOF
+kbuildsycoca6 >/dev/null 2>&1 || true
+ok "Menus KDE configurados (fix do 'Abrir com' no Dolphin)"
 quote
 
 # ──────────────────────────────────────────────
