@@ -33,6 +33,14 @@
     </keybind>
 
 
+    <!-- Histórico da área de transferência -->
+    <keybind key="W-V">
+      <action name="Execute">
+        <command>sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'</command>
+      </action>
+    </keybind>
+
+
     <!-- Arquivos -->
     <keybind key="W-E">
       <action name="Execute">

@@ -228,7 +228,7 @@ fi
 OFFICIAL_PACKAGES=(
   # ── Compositor / WM ──
   labwc waybar swaybg
-  nwg-look wlr-randr grim slurp wl-clipboard
+  nwg-look wlr-randr grim slurp wl-clipboard cliphist wl-clip-persist
   fuzzel dmenu
   konsole alacritty
 

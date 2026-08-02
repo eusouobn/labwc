@@ -84,6 +84,7 @@ ou `bash ~/scripts/github.sh` se já copiado.
 | `Mod+T` | Abrir terminal (Konsole) |
 | `Mod+R` | Launcher de apps (fuzzel) |
 | `Mod+A` | App drawer (fuzzel) |
+| `Mod+V` | Histórico da área de transferência (cliphist) |
 | `Mod+E` | Abrir Dolphin |
 | `Mod+X` | Abrir Firefox |
 | `Mod+Q` | Fechar janela |

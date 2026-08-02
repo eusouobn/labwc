@@ -1,3 +1,4 @@
 waybar &
 nm-applet &
+wl-clip-persist --clipboard regular --all &
 wlr-randr --output HDMI-A-1 --scale 2
