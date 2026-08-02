@@ -553,7 +553,8 @@ write_gtk_dark() {
 [Settings]
 gtk-theme-name=Arc-Darkest
 gtk-icon-theme-name=Papirus-Dark
-gtk-font-name=Ubuntu 12
+gtk-font-name=Ubuntu Bold 12
+gtk-monospace-font-name=Ubuntu Bold Mono 12
 gtk-cursor-theme-name=Adwaita
 gtk-application-prefer-dark-theme=1
 gtk-xft-antialias=1
@@ -571,6 +572,45 @@ command -v nwg-look &>/dev/null && nwg-look -a 2>&1 || true
 # Reforça dark theme (nwg-look pode sobrescrever)
 write_gtk_dark "$HOME/.config/gtk-3.0/settings.ini"
 write_gtk_dark "$HOME/.config/gtk-4.0/settings.ini"
+
+# Fonte Ubuntu Bold também no xsettingsd (apps GTK2)
+mkdir -p "$HOME/.config/xsettingsd"
+if [ -f "$HOME/.config/xsettingsd/xsettingsd.conf" ]; then
+  if grep -q "^Gtk/FontName" "$HOME/.config/xsettingsd/xsettingsd.conf"; then
+    sed -i 's|^Gtk/FontName.*|Gtk/FontName "Ubuntu Bold 12"|' "$HOME/.config/xsettingsd/xsettingsd.conf"
+  else
+    echo 'Gtk/FontName "Ubuntu Bold 12"' >> "$HOME/.config/xsettingsd/xsettingsd.conf"
+  fi
+  if grep -q "^Gtk/MonospaceFontName" "$HOME/.config/xsettingsd/xsettingsd.conf"; then
+    sed -i 's|^Gtk/MonospaceFontName.*|Gtk/MonospaceFontName "Ubuntu Bold Mono 12"|' "$HOME/.config/xsettingsd/xsettingsd.conf"
+  else
+    echo 'Gtk/MonospaceFontName "Ubuntu Bold Mono 12"' >> "$HOME/.config/xsettingsd/xsettingsd.conf"
+  fi
+else
+  cat > "$HOME/.config/xsettingsd/xsettingsd.conf" << 'EOF'
+Net/ThemeName "Adwaita"
+Net/IconThemeName "Papirus-Dark"
+Gtk/CursorThemeName "Adwaita"
+Gtk/FontName "Ubuntu Bold 12"
+Gtk/MonospaceFontName "Ubuntu Bold Mono 12"
+Net/EnableEventSounds 1
+EnableInputFeedbackSounds 0
+Xft/Antialias 1
+Xft/Hinting 1
+Xft/HintStyle "hintslight"
+Xft/RGBA "rgb"
+EOF
+fi
+
+# Fontes Ubuntu Bold no kdeglobals (apps Qt/KDE)
+if [ -f "$HOME/.config/kdeglobals" ]; then
+  if grep -q "^\[Fonts\]" "$HOME/.config/kdeglobals"; then
+    sed -i 's/^font=.*/font=Ubuntu Bold,12,-1,5,50,0,0,0,0,0/' "$HOME/.config/kdeglobals"
+    sed -i 's/^fixed=.*/fixed=Ubuntu Mono Bold,12,-1,5,50,0,0,0,0,0/' "$HOME/.config/kdeglobals"
+  else
+    printf '\n[Fonts]\nfont=Ubuntu Bold,12,-1,5,50,0,0,0,0,0\nfixed=Ubuntu Mono Bold,12,-1,5,50,0,0,0,0,0\n' >> "$HOME/.config/kdeglobals"
+  fi
+fi
 
 # Sincronizar com gsettings (Firefox e apps GNOME leem daqui)
 if command -v gsettings &>/dev/null; then

@@ -133,8 +133,8 @@ ForegroundVisited=225,204,255
 [General]
 ColorScheme=Noctalia
 Name=noctalia
-fixed=Ubuntu Mono Bold,11,-1,5,50,0,0,0,0,0
-font=Ubuntu Bold,11,-1,5,50,0,0,0,0,0
+fixed=Ubuntu Mono Bold,12,-1,5,50,0,0,0,0,0
+font=Ubuntu Bold,12,-1,5,50,0,0,0,0,0
 
 [Icons]
 Theme=Papirus-Dark
