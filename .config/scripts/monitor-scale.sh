@@ -38,6 +38,34 @@ detect_via_drm() {
   done
 }
 
+# ── Aplica configurações fixas do monitor-config.sh ─────
+FIXED_CONF="$HOME/.config/labwc/monitor-fixed.conf"
+
+apply_fixed() {
+  local connected="$1" done_list="" line out mode hz scale
+  [ -f "$FIXED_CONF" ] && [ -s "$FIXED_CONF" ] || { echo "$done_list"; return 0; }
+
+  while IFS= read -r line; do
+    case "$line" in ""|"#"*) continue;; esac
+    read -r out mode hz scale <<< "$line"
+    echo "$connected" | grep -q "^${out} " || continue
+
+    if [ -n "${WAYLAND_DISPLAY:-}" ] && command -v wlr-randr &>/dev/null; then
+      if wlr-randr --output "$out" --mode "${mode}@${hz}" --scale "$scale" 2>/dev/null; then
+        echo -e "  ${GREEN}✔${NC} $out: fixo ${mode} @ ${hz} Hz @ ${scale}x" >&2
+        done_list="$done_list $out"
+      else
+        echo -e "  ${YELLOW}⚠${NC} $out: falha ao aplicar fixo ${mode} @ ${hz}" >&2
+      fi
+    else
+      echo -e "  ${CYAN}→${NC} $out: fixo ${mode} @ ${hz} Hz @ ${scale}x (aplica no login)" >&2
+      done_list="$done_list $out"
+    fi
+  done < "$FIXED_CONF"
+
+  echo "$done_list"
+}
+
 # ── Main ──────────────────────────────────────────────
 echo ""
 echo -e "${BOLD}  Monitor Scale${NC} (resolução máxima + escala dinâmica)"
@@ -51,11 +79,15 @@ if [ -z "$detected" ]; then
   exit 1
 fi
 
+fixed_done=$(apply_fixed "$detected")
+
 while IFS= read -r line; do
   [ -z "$line" ] && continue
   out=$(echo "$line" | awk '{print $1}')
   res=$(echo "$line" | awk '{print $2}')
   [ -z "$out" ] || [ -z "$res" ] && continue
+
+  case " $fixed_done " in *" $out "*) continue;; esac
 
   height=${res#*x}
   scale=$(get_scale "$height")
