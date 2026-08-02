@@ -240,7 +240,7 @@ OFFICIAL_PACKAGES=(
 
   # ── Apps ──
   firefox firefox-i18n-pt-br telegram-desktop mpv audacious gimp obs-studio
-  gsmartcontrol kdiskmark psensor htop hwinfo fastfetch
+  gsmartcontrol kdiskmark psensor htop hwinfo fastfetch lxtask
   kcalc gwenview uget gnome-disk-utility
 
   # ── Rede ──
