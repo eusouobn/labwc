@@ -264,7 +264,7 @@ OFFICIAL_PACKAGES=(
   xf86-video-amdgpu xf86-video-ati
   vulkan-radeon lib32-vulkan-radeon lib32-vulkan-icd-loader
   lib32-mesa mesa-demos mesa-utils libva-utils
-  xorg-xdpyinfo amd-ucode
+  xorg-xdpyinfo amd-ucode xorg-xwayland
 
   # ── Temas / fontes ──
   papirus-icon-theme
