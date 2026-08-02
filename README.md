@@ -93,6 +93,7 @@ labwc/
 │   ├── gtk-3.0/ gtk-4.0/             ← Tema escuro do GTK
 │   ├── nwg-look/                     ← Config do seletor de temas
 │   ├── xsettingsd/                   ← Config do xsettingsd
+│   ├── fontconfig/                   ← Alias: mono→Ubuntu Mono Bold, sans→Ubuntu
 │   └── scripts/                      ← Scripts de configuração do Labwc
 ├── etc/
 │   ├── pacman.d/hooks/kde-cache.hook ← Hook pós-transação do pacman
