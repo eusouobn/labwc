@@ -50,6 +50,23 @@ Ou, se o install.sh já copiou o script para a home:
 bash ~/scripts/labwc.sh
 ```
 
+### 3. Configurar o GitHub (para o OpenCode)
+
+Depois do sistema instalado, configure a autenticação do GitHub para o OpenCode conseguir clonar e dar push:
+
+```bash
+bash scripts/github.sh
+```
+
+ou `bash ~/scripts/github.sh` se já copiado.
+
+**O que ele faz:**
+- Instala o GitHub CLI (`gh`)
+- Configura identidade git (`eusouobn <eusouobn@users.noreply.github.com>`)
+- Faz login no GitHub via HTTPS (fluxo do dispositivo — confirme o código em github.com/login/device)
+- Liga o git ao token do `gh` (credential helper)
+- Verifica com `gh auth status`
+
 **O script faz tudo sozinho:**
 
 - Instala todos os pacotes (Labwc, Waybar, Dolphin, Firefox, áudio, Bluetooth, impressão, etc.)
@@ -85,7 +102,8 @@ bash ~/scripts/labwc.sh
 labwc/
 ├── scripts/
 │   ├── install.sh                    ← Instalador interativo Arch Linux
-│   └── labwc.sh                      ← Script de instalação completo
+│   ├── labwc.sh                      ← Script de instalação completo
+│   └── github.sh                     ← Autenticação GitHub para o OpenCode
 ├── .config/
 │   ├── labwc/                        ← Config do compositor (rc.xml, autostart, environment)
 │   ├── waybar/                       ← Config da barra

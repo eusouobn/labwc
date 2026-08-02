@@ -284,7 +284,7 @@ OFFICIAL_PACKAGES=(
   fwupd sysfsutils smartmontools fuse2 glfw go
   android-tools android-udev usbutils
   python-pip python-pipx tk
-  opencode lightdm lightdm-gtk-greeter
+  opencode gh lightdm lightdm-gtk-greeter
 )
 
 step "📦 Instalando pacotes oficiais..."

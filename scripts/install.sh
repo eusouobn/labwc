@@ -639,6 +639,13 @@ case "$DE" in
       ok "labwc.sh copiado"
     fi
 
+    # Copiar github.sh (autenticação GitHub para o OpenCode)
+    if [ -f /root/scripts/github.sh ]; then
+      cp /root/scripts/github.sh "/mnt/home/$USERNAME/scripts/"
+      chroot /mnt chown "$USERNAME:users" "/home/$USERNAME/scripts/github.sh"
+      ok "github.sh copiado"
+    fi
+
     warn "Após reiniciar, execute: bash ~/scripts/labwc.sh"
     ;;
 esac
