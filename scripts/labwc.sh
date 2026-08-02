@@ -1059,6 +1059,25 @@ if [ -f "$MANGOHUD_SCRIPT" ]; then
 else
   warn "mangohud-config.sh não encontrado ao lado do labwc.sh"
 fi
+
+# Perguntar se quer habilitar globalmente (padrão: Sim — só apertar Enter)
+ENV_FILE="$HOME/.config/labwc/environment"
+echo ""
+echo -n "  Habilitar MangoHud globalmente (MANGOHUD=1 em todos os apps)? [S/n]: "
+read -r ENABLE_MANGOHUD
+case "${ENABLE_MANGOHUD:-S}" in
+  s|S|y|Y|"")
+    if grep -q "^MANGOHUD=1" "$ENV_FILE" 2>/dev/null; then
+      ok "MANGOHUD=1 já está no environment do Labwc"
+    else
+      echo "MANGOHUD=1" >> "$ENV_FILE"
+      ok "MANGOHUD=1 adicionado ao environment do Labwc (reinicie a sessão para valer)"
+    fi
+    ;;
+  *)
+    warn "MangoHud não habilitado globalmente — use Shift_R+F12 para alternar por jogo"
+    ;;
+esac
 quote
 
 # ──────────────────────────────────────────────
