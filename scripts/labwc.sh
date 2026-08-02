@@ -719,6 +719,18 @@ Xft/RGBA "rgb"
 EOF
 fi
 
+# Clique duplo para abrir no Dolphin (SingleClick=false no kdeglobals)
+if [ -f "$HOME/.config/kdeglobals" ]; then
+  if grep -q "^\[KDE\]" "$HOME/.config/kdeglobals"; then
+    sed -i 's/^SingleClick=.*/SingleClick=false/' "$HOME/.config/kdeglobals"
+    if ! grep -q "^SingleClick=" "$HOME/.config/kdeglobals"; then
+      sed -i '/^\[KDE\]/a SingleClick=false' "$HOME/.config/kdeglobals"
+    fi
+  else
+    echo -e "\n[KDE]\nSingleClick=false" >> "$HOME/.config/kdeglobals"
+  fi
+fi
+
 # Fontes Ubuntu Bold no kdeglobals (apps Qt/KDE)
 if [ -f "$HOME/.config/kdeglobals" ]; then
   if grep -q "^\[Fonts\]" "$HOME/.config/kdeglobals"; then

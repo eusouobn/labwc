@@ -140,6 +140,7 @@ font=Ubuntu Bold,12,-1,5,50,0,0,0,0,0
 Theme=Papirus-Dark
 
 [KDE]
+SingleClick=false
 contrast=4
 widgetStyle=Breeze
 
