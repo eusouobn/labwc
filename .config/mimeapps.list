@@ -1,0 +1,10 @@
+[Default Applications]
+application/xml=org.xfce.mousepad.desktop
+application/x-shellscript=org.xfce.mousepad.desktop
+image/png=org.xfce.ristretto.desktop
+
+[Added Associations]
+application/xml=org.kde.kwrite.desktop;org.kde.kate.desktop;org.xfce.mousepad.desktop;
+application/x-shellscript=org.xfce.mousepad.desktop;
+image/png=org.xfce.ristretto.desktop;
+text/x-shellscript=org.kde.kwrite.desktop;
