@@ -647,6 +647,18 @@ if [ -n "$PENDRIVE" ] && [ -f "$PENDRIVE/lightdm.conf.tar.gz" ]; then
   sudo tar -xzf "$PENDRIVE/lightdm.conf.tar.gz" -C /etc/
   info "Configurações do LightDM restauradas do pendrive"
 fi
+
+# Labwc como sessão padrão (evita cair em Openbox/outro por engano)
+if grep -q "^user-session=" /etc/lightdm/lightdm.conf 2>/dev/null; then
+  sudo sed -i 's/^user-session=.*/user-session=labwc/' /etc/lightdm/lightdm.conf
+else
+  echo "user-session=labwc" | sudo tee -a /etc/lightdm/lightdm.conf > /dev/null
+fi
+ok "LightDM: user-session=labwc (padrão)"
+
+# Remover sessões do Openbox da lista do LightDM (entra-se nele por engano)
+sudo rm -f /usr/share/xsessions/openbox.desktop /usr/share/xsessions/openbox-kde.desktop 2>/dev/null
+ok "Sessões Openbox removidas do LightDM"
 quote
 
 # ──────────────────────────────────────────────
