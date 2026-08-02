@@ -624,9 +624,10 @@ case "$DE" in
     warn "Após reiniciar, execute: bash ~/scripts/niri.sh"
     ;;
   Labwc)
-    # Labwc será instalado após reboot via labwc.sh
-    arch-chroot /mnt pacman -S --noconfirm $BASE_PKGS lightdm lightdm-gtk-greeter
-    arch-chroot /mnt systemctl enable NetworkManager lightdm
+    # Labwc será instalado após reboot via labwc.sh — sem LightDM aqui,
+    # pois ele não deve iniciar antes do labwc.sh rodar (falharia sem o Labwc)
+    arch-chroot /mnt pacman -S --noconfirm $BASE_PKGS
+    arch-chroot /mnt systemctl enable NetworkManager
 
     # Copiar scripts para home do usuário (sem precisar de sudo)
     info "Copiando scripts para /mnt/home/$USERNAME/scripts..."
