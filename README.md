@@ -91,7 +91,7 @@ ou `bash ~/scripts/github.sh` se já copiado.
 | `Mod+Escape` | Toggle Waybar |
 | `Mod+Espaço` | Desligar |
 | `Mod+C` | Ferramenta de configuração do Labwc |
-| `Mod+F10` | Screenshot |
+| `Print` | Screenshot (salva + copia) |
 | `Alt+Tab` | Alternar janelas |
 
 > `Mod` = tecla Super (a do Windows/Comando)
