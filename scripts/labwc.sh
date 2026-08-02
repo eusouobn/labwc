@@ -474,6 +474,17 @@ EOF
   quote
 fi
 
+# Variáveis Qt/KDE no ambiente do systemd user (apps abertos via portal
+# — ex.: clicar em arquivo no Telegram — não herdam o environment do labwc)
+mkdir -p "$HOME/.config/environment.d"
+tee "$HOME/.config/environment.d/95-qt.conf" > /dev/null <<'EOF'
+QT_QPA_PLATFORMTHEME=breeze
+KDE_SESSION_VERSION=5
+XDG_CURRENT_DESKTOP=KDE
+EOF
+systemctl --user import-environment QT_QPA_PLATFORMTHEME XDG_CURRENT_DESKTOP KDE_SESSION_VERSION 2>/dev/null || true
+ok "Variáveis Qt/KDE no ambiente do systemd user (portal)"
+
 # ──────────────────────────────────────────────
 # 7. LightDM
 # ──────────────────────────────────────────────
