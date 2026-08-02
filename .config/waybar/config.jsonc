@@ -262,8 +262,8 @@
    
     "custom/launcher": {
     "format": "<span foreground=\"#FFFFFF\"></span>",
-    "on-click": "nwg-drawer",
-    "on-click-right": "killall nwg-drawer"
+    "on-click": "fuzzel --drun",
+    "on-click-right": "fuzzel --drun"
     },
     "custom/power": {
     "format": "<span color='#f75f5f'></span>",  // Ícone vermelho com span color

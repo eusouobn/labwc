@@ -101,7 +101,7 @@ if [ "$RESET_MODE" = true ]; then
   echo -e "  ${YELLOW}⚠${NC} Isso vai APAGAR completamente:"
   echo -e "     ~/.config/labwc/"
   echo -e "     ~/.config/waybar/"
-  echo -e "     ~/.config/nwg-drawer/"
+  echo -e "     ~/.config/fuzzel/"
   echo -e "     ~/.config/nwg-look/"
   echo -e "     ~/.config/gtk-3.0/ ~/.config/gtk-4.0/"
   echo -e "     ~/.config/qt5ct/ ~/.config/qt6ct/"
@@ -120,7 +120,7 @@ if [ "$RESET_MODE" = true ]; then
   echo -e "  ${RED}→${NC} Limpando configs antigas..."
   rm -rf "$HOME/.config/labwc"
   rm -rf "$HOME/.config/waybar"
-  rm -rf "$HOME/.config/nwg-drawer"
+  rm -rf "$HOME/.config/fuzzel"
   rm -rf "$HOME/.config/nwg-look"
   rm -rf "$HOME/.config/gtk-3.0"
   rm -rf "$HOME/.config/gtk-4.0"
@@ -231,8 +231,8 @@ fi
 OFFICIAL_PACKAGES=(
   # ── Compositor / WM ──
   labwc waybar swaybg
-  nwg-drawer nwg-look wlr-randr grim wl-clipboard
-  dmenu fuzzel
+  nwg-look wlr-randr grim wl-clipboard
+  fuzzel dmenu
   xfce4-terminal alacritty
 
   # ── Arquivos / utilitários ──

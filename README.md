@@ -8,7 +8,7 @@ Configurações pessoais do meu ambiente Arch Linux com **Labwc** (compositor Wa
 |-----------|-----------|
 | **Compositor** | Labwc (Wayland, baseado em wlroots) |
 | **Barra** | Waybar |
-| **Launcher** | nwg-drawer + dmenu + fuzzel |
+| **Launcher** | fuzzel + dmenu |
 | **Terminal** | XFCE4 Terminal + Alacritty + FiraCode Nerd Font |
 | **Tema** | Escuro (Arc-Darkest, Papirus-Dark) |
 | **Login** | LightDM + lightdm-gtk-greeter |
@@ -64,8 +64,8 @@ bash ~/scripts/labwc.sh
 | Atalho | Ação |
 |--------|------|
 | `Mod+T` | Abrir terminal (XFCE4 Terminal) |
-| `Mod+R` | Launcher de apps (wofi/nwg-drawer) |
-| `Mod+A` | Nwg-Drawer |
+| `Mod+R` | Launcher de apps (fuzzel) |
+| `Mod+A` | App drawer (fuzzel) |
 | `Mod+E` | Abrir Thunar |
 | `Mod+X` | Abrir Firefox |
 | `Mod+Q` | Fechar janela |
@@ -88,7 +88,7 @@ labwc/
 ├── .config/
 │   ├── labwc/                        ← Config do compositor (rc.xml, autostart, environment)
 │   ├── waybar/                       ← Config da barra
-│   ├── nwg-drawer/                   ← CSS do launcher
+│   ├── fuzzel/                       ← Config do launcher
 │   ├── gtk-3.0/ gtk-4.0/             ← Tema escuro do GTK
 │   ├── qt5ct/ qt6ct/                 ← Tema escuro do Qt
 │   ├── nwg-look/                     ← Config do seletor de temas
