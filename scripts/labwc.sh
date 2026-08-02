@@ -435,6 +435,18 @@ fi
 quote
 
 # ──────────────────────────────────────────────
+# 6b2. Boot verboso no GRUB (loglevel=7 debug, timeout 1s)
+# ──────────────────────────────────────────────
+step "🐢 Boot verboso no GRUB (loglevel=7 debug, timeout 1s)"
+if [ -f /etc/default/grub ]; then
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=7 debug"/' /etc/default/grub
+  sudo sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+  ok "GRUB: loglevel=7 debug + timeout 1s aplicados"
+else
+  warn "/etc/default/grub não encontrado — boot verboso não configurado"
+fi
+
 # 6c. Configuração NVIDIA para Wayland
 # ──────────────────────────────────────────────
 if lspci | grep -qi nvidia; then
