@@ -305,10 +305,12 @@ quote
 # ──────────────────────────────────────────────
 AUR_PACKAGES=(
   openbox-themes
+  qt5ct-kde
+  qt6ct-kde
 )
 
 step "🌟 Instalando pacotes AUR..."
-info "openbox-themes (temas de decoração para o Labwc)..."
+info "openbox-themes (temas de decoração) + qt5ct-kde/qt6ct-kde (tema Qt com integração KDE)..."
 echo ""
 
 # Verificar se yay está instalado
