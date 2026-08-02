@@ -65,6 +65,11 @@
       <action name="ToggleFullscreen"/>
     </keybind>
 
+    <!-- Toggle tearing (desbloquear FPS) -->
+    <keybind key="W-P">
+      <action name="ToggleTearing"/>
+    </keybind>
+
     <!-- Toggle waybar -->
     <keybind key="W-Escape">
       <action name="Execute">
@@ -114,5 +119,10 @@
 <focus>
   <followMouse>false</followMouse>
 </focus>
+
+<core>
+  <adaptiveSync>fullscreen</adaptiveSync>
+  <allowTearing>fullscreenForced</allowTearing>
+</core>
 
 </labwc_config>

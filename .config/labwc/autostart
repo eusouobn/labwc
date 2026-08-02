@@ -1,4 +1,5 @@
 waybar &
 nm-applet &
-wl-clip-persist --clipboard regular --all &
+wl-clip-persist --clipboard regular --all-mime-type-regex '.*' &
 wlr-randr --output HDMI-A-1 --scale 2
+export XDG_DATA_DIRS=/usr/share:/usr/local/share:/var/lib/flatpak/exports/share
