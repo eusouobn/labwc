@@ -14,7 +14,7 @@
     <!-- Terminal -->
     <keybind key="W-T">
       <action name="Execute">
-        <command>xfce4-terminal</command>
+        <command>konsole</command>
       </action>
     </keybind>
 
@@ -36,7 +36,7 @@
     <!-- Arquivos -->
     <keybind key="W-E">
       <action name="Execute">
-        <command>thunar</command>
+        <command>dolphin</command>
       </action>
     </keybind>
 
@@ -82,7 +82,7 @@
     <!-- Labwc Configurator -->
     <keybind key="W-C">
       <action name="Execute">
-        <command>xfce4-terminal --command "$HOME/labwc/.config/scripts/labwc-config.sh"</command>
+        <command>konsole --nofork --hold -e bash "$HOME/labwc/.config/scripts/labwc-config.sh"</command>
       </action>
     </keybind>
 

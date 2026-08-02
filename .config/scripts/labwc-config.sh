@@ -17,7 +17,7 @@ read -rp "  Escolha [1-5]: " choice
 case "$choice" in
   1) bash "$HOME/.config/scripts/switch-labwc-theme.sh" ;;
   2) nwg-look ;;
-  3) xfce4-terminal --hold -e "nano $HOME/.config/labwc/rc.xml" ;;
-  4) xfce4-terminal --hold -e "nano $HOME/.config/labwc/autostart" ;;
+  3) konsole --nofork --hold -e nano "$HOME/.config/labwc/rc.xml" ;;
+  4) konsole --nofork --hold -e nano "$HOME/.config/labwc/autostart" ;;
   *) exit 0 ;;
 esac

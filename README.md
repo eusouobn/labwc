@@ -9,13 +9,14 @@ Configurações pessoais do meu ambiente Arch Linux com **Labwc** (compositor Wa
 | **Compositor** | Labwc (Wayland, baseado em wlroots) |
 | **Barra** | Waybar |
 | **Launcher** | fuzzel + dmenu |
-| **Terminal** | XFCE4 Terminal + Alacritty + FiraCode Nerd Font |
+| **Terminal** | Konsole (KDE) + Alacritty + FiraCode Nerd Font |
 | **Tema** | Escuro (Arc-Darkest, Papirus-Dark) |
 | **Login** | LightDM + lightdm-gtk-greeter |
 | **Navegador** | Firefox |
-| **Arquivos** | Thunar + Dolphin (KDE) |
-| **Editor** | Kate |
-| **Áudio** | PipeWire + WirePlumber + Pavucontrol |
+| **Arquivos** | Dolphin (KDE) |
+| **Editor** | Kate (KDE) |
+| **Imagens** | Gwenview (KDE) |
+| **Áudio** | PipeWire + WirePlumber + Elisa (KDE) + Pavucontrol |
 | **Bluetooth** | BlueZ |
 | **Impressão** | CUPS + system-config-printer |
 | **Ícones** | Papirus-Dark |
@@ -51,7 +52,7 @@ bash ~/scripts/labwc.sh
 
 **O script faz tudo sozinho:**
 
-- Instala todos os pacotes (Labwc, Waybar, Thunar, Firefox, áudio, Bluetooth, impressão, etc.)
+- Instala todos os pacotes (Labwc, Waybar, Dolphin, Firefox, áudio, Bluetooth, impressão, etc.)
 - Configura tema escuro, ícones e fontes
 - Configura LightDM
 - Ativa Bluetooth, áudio e serviços necessários
@@ -63,10 +64,10 @@ bash ~/scripts/labwc.sh
 
 | Atalho | Ação |
 |--------|------|
-| `Mod+T` | Abrir terminal (XFCE4 Terminal) |
+| `Mod+T` | Abrir terminal (Konsole) |
 | `Mod+R` | Launcher de apps (fuzzel) |
 | `Mod+A` | App drawer (fuzzel) |
-| `Mod+E` | Abrir Thunar |
+| `Mod+E` | Abrir Dolphin |
 | `Mod+X` | Abrir Firefox |
 | `Mod+Q` | Fechar janela |
 | `Mod+F` | Tela cheia |

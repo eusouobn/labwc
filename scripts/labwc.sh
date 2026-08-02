@@ -230,18 +230,18 @@ OFFICIAL_PACKAGES=(
   labwc waybar swaybg
   nwg-look wlr-randr grim slurp wl-clipboard
   fuzzel dmenu
-  xfce4-terminal alacritty
+  konsole alacritty
 
   # ── Arquivos / utilitários ──
-  thunar thunar-archive-plugin thunar-volman xarchiver file-roller ark
+  ark kde-cli-tools
   unrar unzip ntfs-3g exfat-utils dosfstools
-  dolphin dolphin-plugins kio-admin kate konsole
+  dolphin dolphin-plugins kio-admin kate
   xdg-user-dirs xdg-utils
 
   # ── Apps ──
-  firefox firefox-i18n-pt-br telegram-desktop mpv audacious gimp obs-studio
+  firefox firefox-i18n-pt-br telegram-desktop mpv gimp obs-studio
   gsmartcontrol kdiskmark psensor htop hwinfo fastfetch
-  ristretto uget gnome-disk-utility
+  elisa kcalc gwenview uget gnome-disk-utility
 
   # ── Rede ──
   networkmanager network-manager-applet wpa_supplicant ethtool
@@ -609,9 +609,9 @@ quote
 # 10. Apps padrão
 # ──────────────────────────────────────────────
 step "🐬 Definindo apps padrão..."
-info "Associando pastas ao Thunar..."
-xdg-mime default thunar.desktop inode/directory
-xdg-mime default thunar.desktop x-scheme-handler/trash
+info "Associando pastas ao Dolphin..."
+xdg-mime default org.kde.dolphin.desktop inode/directory
+xdg-mime default org.kde.dolphin.desktop x-scheme-handler/trash
 
 # mpv — vídeos
 xdg-mime default mpv.desktop video/mp4
@@ -621,15 +621,28 @@ xdg-mime default mpv.desktop video/x-msvideo
 xdg-mime default mpv.desktop video/quicktime
 xdg-mime default mpv.desktop video/x-flv
 
-# audacious — áudio
-xdg-mime default audacious.desktop audio/mpeg
-xdg-mime default audacious.desktop audio/x-flac
-xdg-mime default audacious.desktop audio/ogg
-xdg-mime default audacious.desktop audio/x-wav
-xdg-mime default audacious.desktop audio/aac
-xdg-mime default audacious.desktop audio/mp4
+# elisa — áudio
+xdg-mime default org.kde.elisa.desktop audio/mpeg
+xdg-mime default org.kde.elisa.desktop audio/x-flac
+xdg-mime default org.kde.elisa.desktop audio/ogg
+xdg-mime default org.kde.elisa.desktop audio/x-wav
+xdg-mime default org.kde.elisa.desktop audio/aac
+xdg-mime default org.kde.elisa.desktop audio/mp4
 
-ok "Apps padrão: Thunar, mpv, audacious"
+# gwenview — imagens
+xdg-mime default org.kde.gwenview.desktop image/png
+xdg-mime default org.kde.gwenview.desktop image/jpeg
+xdg-mime default org.kde.gwenview.desktop image/gif
+xdg-mime default org.kde.gwenview.desktop image/webp
+xdg-mime default org.kde.gwenview.desktop image/bmp
+xdg-mime default org.kde.gwenview.desktop image/svg+xml
+
+# kate — texto
+xdg-mime default org.kde.kate.desktop text/plain
+xdg-mime default org.kde.kate.desktop application/xml
+xdg-mime default org.kde.kate.desktop application/x-shellscript
+
+ok "Apps padrão: Dolphin, mpv, elisa, gwenview, kate"
 quote
 
 # ──────────────────────────────────────────────
