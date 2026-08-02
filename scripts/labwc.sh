@@ -1000,50 +1000,38 @@ detect_monitors() {
   done
 }
 
-# Função: calcular escala baseada na resolução vertical
-get_scale_for_height() {
-  local height="$1"
-  if [ "$height" -ge 2160 ]; then
-    echo "2.0"
-  elif [ "$height" -ge 1440 ]; then
-    echo "1.5"
-  else
-    echo "1.0"
-  fi
-}
-
 # Detectar monitores
 MONITORS_FOUND=$(detect_monitors) || true
 
 AUTOSTART="$HOME/.config/labwc/autostart"
+SCALE_SCRIPT="$HOME/.config/scripts/monitor-scale.sh"
 mkdir -p "$HOME/.config/labwc"
 
-# Remover linhas wlr-randr existentes do autostart (serão regeneradas)
+# Remover linhas wlr-randr antigas (a escala agora é aplicada pelo monitor-scale.sh)
 if [ -f "$AUTOSTART" ]; then
   sed -i '/^wlr-randr/d' "$AUTOSTART"
 fi
 
+# Registrar o monitor-scale.sh no autostart (resolução máx + escala dinâmica)
+if [ -f "$SCALE_SCRIPT" ]; then
+  chmod +x "$SCALE_SCRIPT"
+  if ! grep -q "monitor-scale.sh" "$AUTOSTART" 2>/dev/null; then
+    echo '$HOME/.config/scripts/monitor-scale.sh &' >> "$AUTOSTART"
+  fi
+  ok "monitor-scale.sh registrado no autostart (resolução máxima + escala dinâmica)"
+else
+  warn "monitor-scale.sh não encontrado em ~/.config/scripts — confira se os dotfiles foram copiados"
+fi
+
 if [ -n "$MONITORS_FOUND" ]; then
-  info "Monitores detectados:"
+  info "Monitores detectados (resolução nativa):"
   echo "$MONITORS_FOUND" | while read -r line; do
     info "  $line"
   done
   echo ""
-
-  while IFS= read -r line; do
-    local_output=$(echo "$line" | awk '{print $1}')
-    local_res=$(echo "$line" | awk '{print $2}')
-    local_width=$(echo "$local_res" | cut -d'x' -f1)
-    local_height=$(echo "$local_res" | cut -d'x' -f2)
-    local_scale=$(get_scale_for_height "$local_height")
-
-    echo "wlr-randr --output $local_output --scale $local_scale" >> "$AUTOSTART"
-    info "  ${local_output}: ${local_width}x${local_height} escala ${local_scale}"
-  done <<< "$MONITORS_FOUND"
-
-  ok "Escalas adicionadas ao autostart do Labwc"
+  info "Escala (1080p=1x, 1440p=1.5x, 4K=2x) aplicada no próximo login"
 else
-  warn "Nenhum monitor detectado — mantendo autostart atual"
+  warn "Nenhum monitor detectado agora"
 fi
 quote
 
