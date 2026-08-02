@@ -435,11 +435,12 @@ fi
 quote
 
 # ──────────────────────────────────────────────
-# 6b2. Boot verboso no systemd-boot/UKI (loglevel=7 debug, timeout 1s)
+# 6b2. Boot verboso (loglevel=7 debug, timeout 1s) — detecta o bootloader
 # ──────────────────────────────────────────────
-step "🐢 Boot verboso no systemd-boot/UKI (loglevel=7 debug, timeout 1s)"
-if [ -f /etc/kernel/cmdline ]; then
-  # O cmdline é embutido na imagem unificada (UKI) pelo mkinitcpio
+step "🐢 Boot verboso (loglevel=7 debug, timeout 1s)"
+if [ -d /boot/loader ] || [ -f /etc/kernel/cmdline ]; then
+  # systemd-boot + UKI (ex.: instalado via Archinstall): o cmdline é
+  # embutido na imagem unificada pelo mkinitcpio
   sudo sed -i '/loglevel=7/! s/$/ loglevel=7 debug/' /etc/kernel/cmdline
   # Remover o splash do systemd-boot (splash-arch.bmp) p/ ver as mensagens
   sudo sed -i 's| default_options="--splash[^"]*"| default_options=""|' /etc/mkinitcpio.d/*.preset
@@ -447,8 +448,14 @@ if [ -f /etc/kernel/cmdline ]; then
   echo 'timeout 1' | sudo tee /boot/loader/loader.conf > /dev/null
   sudo mkinitcpio -P
   ok "systemd-boot/UKI: loglevel=7 debug + timeout 1s + sem splash"
+elif [ -f /etc/default/grub ]; then
+  # GRUB (padrão do install.sh)
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=7 debug"/' /etc/default/grub
+  sudo sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+  ok "GRUB: loglevel=7 debug + timeout 1s"
 else
-  warn "/etc/kernel/cmdline não encontrado — boot verboso não configurado"
+  warn "Bootloader não reconhecido — boot verboso não configurado"
 fi
 
 # 6c. Configuração NVIDIA para Wayland
