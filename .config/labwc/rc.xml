@@ -121,7 +121,7 @@
 </focus>
 
 <core>
-  <adaptiveSync>fullscreen</adaptiveSync>
+  <adaptiveSync>no</adaptiveSync>
   <allowTearing>fullscreenForced</allowTearing>
 </core>
 
