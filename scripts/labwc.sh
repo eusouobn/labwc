@@ -231,23 +231,24 @@ fi
 OFFICIAL_PACKAGES=(
   # ── Compositor / WM ──
   labwc waybar swaybg
-  nwg-look wlr-randr grim wl-clipboard
+  nwg-look wlr-randr grim slurp wl-clipboard
   fuzzel dmenu
   xfce4-terminal alacritty
 
   # ── Arquivos / utilitários ──
-  thunar thunar-archive-plugin xarchiver file-roller ark
+  thunar thunar-archive-plugin thunar-volman xarchiver file-roller ark
   unrar unzip ntfs-3g exfat-utils dosfstools
   dolphin dolphin-plugins kio-admin kate konsole
   xdg-user-dirs xdg-utils
 
   # ── Apps ──
-  firefox telegram-desktop mpv audacious gimp obs-studio
+  firefox firefox-i18n-pt-br telegram-desktop mpv audacious gimp obs-studio
   gsmartcontrol kdiskmark psensor htop hwinfo fastfetch
-  uget gnome-disk-utility
+  ristretto uget gnome-disk-utility
 
   # ── Rede ──
   networkmanager network-manager-applet wpa_supplicant ethtool
+  inetutils nss-mdns
 
   # ── Áudio ──
   pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber
@@ -276,6 +277,8 @@ OFFICIAL_PACKAGES=(
   # ── Codecs / multimídia ──
   a52dec faac faad2 frei0r-plugins libdca libdv libmad
   libmpeg2 movit wavpack
+  jasper libtheora x264 xvidcore
+  ffmpeg ffmpegthumbnailer
   gst-libav gst-plugin-pipewire gst-plugins-base gst-plugins-good
   gst-plugins-bad gst-plugins-ugly
 
@@ -296,6 +299,31 @@ echo ""
 sudo pacman -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 echo ""
 ok "Pacotes oficiais instalados"
+quote
+
+# ──────────────────────────────────────────────
+# 4b. Pacotes AUR
+# ──────────────────────────────────────────────
+AUR_PACKAGES=(
+  openbox-themes
+)
+
+step "🌟 Instalando pacotes AUR..."
+info "openbox-themes (temas de decoração para o Labwc)..."
+echo ""
+
+# Verificar se yay está instalado
+if ! command -v yay &>/dev/null; then
+  warn "yay não encontrado — instalando..."
+  rm -rf /tmp/yay-bin
+  git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
+  (cd /tmp/yay-bin && makepkg -si --noconfirm)
+  rm -rf /tmp/yay-bin
+fi
+
+yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+echo ""
+ok "Pacotes AUR instalados"
 quote
 
 # ──────────────────────────────────────────────
