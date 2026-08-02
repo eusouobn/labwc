@@ -103,7 +103,7 @@
   </keyboard>
 
 <theme>
-    <name>OB-Tokyonight-Dark</name>
+    <name>Breeze-Dark</name>
     <font place="ActiveWindow"><name>Ubuntu</name><size>12</size><weight>bold</weight></font>
     <font place="InactiveWindow"><name>Ubuntu</name><size>12</size><weight>bold</weight></font>
 </theme>

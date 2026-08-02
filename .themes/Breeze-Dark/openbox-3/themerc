@@ -1,0 +1,62 @@
+# Breeze-Dark
+# Tema Openbox inspirado no Breeze Dark do KDE, para o labwc.
+# Base: Breeze-ob (Debian openbox) recolored com a paleta Breeze Dark.
+
+border.width                              : 1
+padding.width                             : 1
+padding.height                            : 2
+window.client.padding.width               : 2
+window.handle.width                       : 0
+window.label.text.justify                 : center
+
+window.active.border.color                : #3daee9
+window.inactive.border.color              : #31363b
+window.*.client.color                     : #232629
+window.*.title.bg                         : flat
+window.active.title.bg.color              : #31363b
+window.inactive.title.bg.color            : #232629
+window.active.label.bg                    : parentrelative
+window.inactive.label.bg                  : parentrelative
+window.active.button.*.bg                 : parentrelative
+window.active.button.*.image.color        : #eff0f1
+window.active.button.*.pressed.image.color: #2980b9
+window.active.button.*.hover.image.color  : #3daee9
+window.inactive.button.*.bg               : parentrelative
+window.inactive.button.*.image.color      : #7f8c8d
+window.inactive.button.*.hover.image.color: #bdc3c7
+window.active.label.text.color            : #eff0f1
+window.inactive.label.text.color          : #7f8c8d
+window.active.title.separator.color       : #3daee9
+window.inactive.title.separator.color     : #232629
+
+menu.border.width                         : 1
+menu.separator.width                      : 1
+menu.separator.padding.width              : 3
+menu.separator.padding.height             : 3
+menu.overlap.x                            : 0
+menu.overlap.y                            : 0
+menu.border.color                         : #3daee9
+menu.separator.color                      : #31363b
+menu.items.text.color                     : #eff0f1
+menu.items.disabled.text.color            : #7f8c8d
+menu.items.active.text.color              : #ffffff
+menu.items.active.disabled.text.color     : #7f8c8d
+menu.items.bg                             : flat
+menu.items.bg.color                       : #232629
+menu.items.active.bg                      : flat
+menu.items.active.bg.color                : #3daee9
+menu.title.text.color                     : #eff0f1
+menu.title.bg                             : flat
+menu.title.bg.color                       : #31363b
+
+osd.border.width                          : 1
+osd.border.color                          : #31363b
+osd.bg                                    : flat
+osd.bg.color                              : #232629
+osd.hilight.bg                            : flat
+osd.hilight.bg.color                      : #3daee9
+osd.unhilight.bg                          : flat
+osd.unhilight.bg.color                    : #31363b
+osd.label.bg                              : flat
+osd.label.bg.color                        : #232629
+osd.label.text.color                      : #eff0f1

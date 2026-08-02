@@ -368,6 +368,13 @@ cp -r /tmp/labwc-dotfiles/.config/* "$HOME/.config/"
 
 ok "Dotfiles baixados do GitHub!"
 
+# Temas de janela (openbox/labwc) do repo → ~/.themes
+if [ -d /tmp/labwc-dotfiles/.themes ]; then
+  mkdir -p "$HOME/.themes"
+  cp -r /tmp/labwc-dotfiles/.themes/* "$HOME/.themes/"
+  ok "Temas de janela copiados para ~/.themes"
+fi
+
 # Tornar scripts executáveis
 chmod +x "$HOME/.config/scripts/"*.sh 2>/dev/null || true
 ok "Scripts tornados executáveis"
