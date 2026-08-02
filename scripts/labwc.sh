@@ -435,16 +435,20 @@ fi
 quote
 
 # ──────────────────────────────────────────────
-# 6b2. Boot verboso no GRUB (loglevel=7 debug, timeout 1s)
+# 6b2. Boot verboso no systemd-boot/UKI (loglevel=7 debug, timeout 1s)
 # ──────────────────────────────────────────────
-step "🐢 Boot verboso no GRUB (loglevel=7 debug, timeout 1s)"
-if [ -f /etc/default/grub ]; then
-  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=7 debug"/' /etc/default/grub
-  sudo sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-  ok "GRUB: loglevel=7 debug + timeout 1s aplicados"
+step "🐢 Boot verboso no systemd-boot/UKI (loglevel=7 debug, timeout 1s)"
+if [ -f /etc/kernel/cmdline ]; then
+  # O cmdline é embutido na imagem unificada (UKI) pelo mkinitcpio
+  sudo sed -i '/loglevel=7/! s/$/ loglevel=7 debug/' /etc/kernel/cmdline
+  # Remover o splash do systemd-boot (splash-arch.bmp) p/ ver as mensagens
+  sudo sed -i 's| default_options="--splash[^"]*"| default_options=""|' /etc/mkinitcpio.d/*.preset
+  # Timeout 1s do menu do systemd-boot
+  echo 'timeout 1' | sudo tee /boot/loader/loader.conf > /dev/null
+  sudo mkinitcpio -P
+  ok "systemd-boot/UKI: loglevel=7 debug + timeout 1s + sem splash"
 else
-  warn "/etc/default/grub não encontrado — boot verboso não configurado"
+  warn "/etc/kernel/cmdline não encontrado — boot verboso não configurado"
 fi
 
 # 6c. Configuração NVIDIA para Wayland
@@ -460,6 +464,14 @@ if lspci | grep -qi nvidia; then
       ok "GRUB: nvidia_drm.modeset=1 adicionado"
     else
       info "GRUB já configurado para NVIDIA"
+    fi
+  fi
+
+  # Em sistema systemd-boot + UKI o cmdline vem do /etc/kernel/cmdline
+  if [ -f /etc/kernel/cmdline ]; then
+    if ! grep -q "nvidia_drm.modeset=1" /etc/kernel/cmdline; then
+      sudo sed -i '/nvidia_drm.modeset=1/! s/$/ nvidia_drm.modeset=1 nvidia_drm.fbdev=1/' /etc/kernel/cmdline
+      ok "cmdline UKI: nvidia_drm.modeset=1 adicionado"
     fi
   fi
 
