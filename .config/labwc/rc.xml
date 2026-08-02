@@ -79,6 +79,13 @@
       </action>
     </keybind>
 
+    <!-- Logout -->
+    <keybind key="W-L">
+      <action name="Execute">
+        <command>labwc --exit</command>
+      </action>
+    </keybind>
+
     <!-- Screenshot: tela inteira + salvar + copiar -->
     <keybind key="Print">
       <action name="Execute">

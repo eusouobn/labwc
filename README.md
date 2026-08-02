@@ -91,6 +91,7 @@ ou `bash ~/scripts/github.sh` se já copiado.
 | `Mod+F` | Tela cheia |
 | `Mod+Escape` | Toggle Waybar |
 | `Mod+Espaço` | Desligar |
+| `Mod+L` | Logout |
 | `Mod+C` | Ferramenta de configuração do Labwc |
 | `Print` | Screenshot (salva + copia) |
 | `Alt+Tab` | Alternar janelas |
