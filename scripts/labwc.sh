@@ -104,7 +104,6 @@ if [ "$RESET_MODE" = true ]; then
   echo -e "     ~/.config/fuzzel/"
   echo -e "     ~/.config/nwg-look/"
   echo -e "     ~/.config/gtk-3.0/ ~/.config/gtk-4.0/"
-  echo -e "     ~/.config/qt5ct/ ~/.config/qt6ct/"
   echo -e "     ~/.config/xsettingsd/ ~/.config/kdeglobals"
   echo -e "     ~/.config/scripts/"
   echo -e "     /tmp/labwc-dotfiles/"
@@ -124,8 +123,6 @@ if [ "$RESET_MODE" = true ]; then
   rm -rf "$HOME/.config/nwg-look"
   rm -rf "$HOME/.config/gtk-3.0"
   rm -rf "$HOME/.config/gtk-4.0"
-  rm -rf "$HOME/.config/qt5ct"
-  rm -rf "$HOME/.config/qt6ct"
   rm -rf "$HOME/.config/xsettingsd"
   rm -rf "$HOME/.config/scripts"
   rm -f  "$HOME/.config/kdeglobals"
@@ -272,7 +269,6 @@ OFFICIAL_PACKAGES=(
   # ── Temas / fontes ──
   papirus-icon-theme
   ttf-ubuntu-font-family ttf-ubuntu-nerd ttf-firacode-nerd
-  qt5ct qt6ct
 
   # ── Codecs / multimídia ──
   a52dec faac faad2 frei0r-plugins libdca libdv libmad

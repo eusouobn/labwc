@@ -90,7 +90,6 @@ labwc/
 │   ├── waybar/                       ← Config da barra
 │   ├── fuzzel/                       ← Config do launcher
 │   ├── gtk-3.0/ gtk-4.0/             ← Tema escuro do GTK
-│   ├── qt5ct/ qt6ct/                 ← Tema escuro do Qt
 │   ├── nwg-look/                     ← Config do seletor de temas
 │   ├── xsettingsd/                   ← Config do xsettingsd
 │   └── scripts/                      ← Scripts de configuração do Labwc

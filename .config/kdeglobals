@@ -141,7 +141,7 @@ Theme=Papirus-Dark
 
 [KDE]
 contrast=4
-widgetStyle=qt6ct-style
+widgetStyle=Breeze
 
 [PreviewSettings]
 EnableRemoteFolderThumbnail=false
