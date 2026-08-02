@@ -262,8 +262,8 @@
    
     "custom/launcher": {
     "format": "<span foreground=\"#FFFFFF\"></span>",
-    "on-click": "fuzzel --drun",
-    "on-click-right": "fuzzel --drun"
+    "on-click": "fuzzel",
+    "on-click-right": "fuzzel"
     },
     "custom/power": {
     "format": "<span color='#f75f5f'></span>",  // Ícone vermelho com span color

@@ -21,14 +21,14 @@
     <!-- Launcher -->
     <keybind key="W-R">
       <action name="Execute">
-        <command>fuzzel --drun</command>
+        <command>fuzzel</command>
       </action>
     </keybind>
 
 <!-- Fuzzel (app drawer) -->
     <keybind key="W-A">
       <action name="Execute">
-        <command>fuzzel --drun</command>
+        <command>fuzzel</command>
       </action>
     </keybind>
 
