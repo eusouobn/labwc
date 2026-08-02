@@ -266,6 +266,9 @@ OFFICIAL_PACKAGES=(
   lib32-mesa mesa-demos mesa-utils libva-utils
   xorg-xdpyinfo amd-ucode xorg-xwayland
 
+  # ── Jogos / Overlay ──
+  mangohud lib32-mangohud
+
   # ── Temas / fontes ──
   papirus-icon-theme
   ttf-ubuntu-font-family ttf-ubuntu-nerd ttf-firacode-nerd
@@ -1041,6 +1044,20 @@ if [ -n "$MONITORS_FOUND" ]; then
   ok "Escalas adicionadas ao autostart do Labwc"
 else
   warn "Nenhum monitor detectado — mantendo autostart atual"
+fi
+quote
+
+# ──────────────────────────────────────────────
+# 11b. MangoHud (overlay FPS)
+# ──────────────────────────────────────────────
+step "🎮 Configurando MangoHud..."
+info "Gera ~/.config/MangoHud/MangoHud.conf com CPU/GPU detectados automaticamente"
+
+MANGOHUD_SCRIPT="$(dirname "$0")/mangohud-config.sh"
+if [ -f "$MANGOHUD_SCRIPT" ]; then
+  bash "$MANGOHUD_SCRIPT" || warn "Falha ao gerar config do MangoHud"
+else
+  warn "mangohud-config.sh não encontrado ao lado do labwc.sh"
 fi
 quote
 

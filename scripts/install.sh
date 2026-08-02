@@ -640,6 +640,13 @@ case "$DE" in
       ok "labwc.sh copiado"
     fi
 
+    # Copiar mangohud-config.sh (gera config do MangoHud)
+    if [ -f /root/scripts/mangohud-config.sh ]; then
+      cp /root/scripts/mangohud-config.sh "/mnt/home/$USERNAME/scripts/"
+      chroot /mnt chown "$USERNAME:users" "/home/$USERNAME/scripts/mangohud-config.sh"
+      ok "mangohud-config.sh copiado"
+    fi
+
     # Copiar github.sh (autenticação GitHub para o OpenCode)
     if [ -f /root/scripts/github.sh ]; then
       cp /root/scripts/github.sh "/mnt/home/$USERNAME/scripts/"

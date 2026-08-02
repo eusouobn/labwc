@@ -105,7 +105,8 @@ labwc/
 ├── scripts/
 │   ├── install.sh                    ← Instalador interativo Arch Linux
 │   ├── labwc.sh                      ← Script de instalação completo
-│   └── github.sh                     ← Autenticação GitHub para o OpenCode
+│   ├── github.sh                     ← Autenticação GitHub para o OpenCode
+│   └── mangohud-config.sh            ← Gera MangoHud.conf com CPU/GPU detectados
 ├── .config/
 │   ├── labwc/                        ← Config do compositor (rc.xml, autostart, environment)
 │   ├── waybar/                       ← Config da barra
