@@ -268,6 +268,7 @@ OFFICIAL_PACKAGES=(
 
   # ── Jogos / Overlay ──
   mangohud lib32-mangohud
+  gamescope
 
   # ── Temas / fontes ──
   papirus-icon-theme
